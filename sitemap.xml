@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/blogs/</loc>
+    <lastmod>2019-10-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <lastmod>2019-10-23T00:00:00+00:00</lastmod>
   </url>
@@ -14,6 +19,11 @@
   
   <url>
     <loc>/tags/functional-programming/</loc>
+    <lastmod>2019-10-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/haskell/</loc>
     <lastmod>2019-10-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -34,6 +44,11 @@
   
   <url>
     <loc>/tags/</loc>
+    <lastmod>2019-10-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blogs/typeclasses/</loc>
     <lastmod>2019-10-23T00:00:00+00:00</lastmod>
   </url>
   

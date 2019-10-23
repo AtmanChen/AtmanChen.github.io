@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>Type Classes in Haskell</title>
+      <link>/blogs/typeclasses/</link>
+      <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/typeclasses/</guid>
+      <description>Haskell 中的 type classes 看看 Haskell 中的求和函数:
+1 2 3  sum :: (Num a) =&amp;gt; [a] -&amp;gt; a sum [] = 0 sum (x:xs) = x + sum xs   可以看到 sum 函数的类型签名前有对小括号 (Num a), 这个就是 Haskell 的 type classes。应该说 type classes 就是用来在泛型中限制参数类型的。因为数字可以相加，而其他类型不一定可以，比如两个人相加 (“张三” + “李四”)，结果是两个人，并不像数字 (1 + 1 = 2)一样具有合二为一的特点。
+我们从 Swift 的代码更容易理解这个 type classes:
+1 2 3 4  extension Array where Element: Numeric { func sum() -&amp;gt; Element { reduce(0, +) } } let intSum = [1,2,3].</description>
+    </item>
+    
+    <item>
       <title>UltraFine</title>
       <link>/about/</link>
       <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
