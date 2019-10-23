@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://example.com/blog_announcement/</loc>
+    <loc>https://example.com/post/blog_announcement/</loc>
     <lastmod>2019-10-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -29,6 +29,11 @@
   
   <url>
     <loc>https://example.com/tags/life/</loc>
+    <lastmod>2019-10-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/post/</loc>
     <lastmod>2019-10-23T00:00:00+00:00</lastmod>
   </url>
   
