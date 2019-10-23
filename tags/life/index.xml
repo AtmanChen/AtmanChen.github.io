@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>life on UltraFine</title>
-    <link>https://example.com/tags/life/</link>
+    <link>http://ultrafine.fun/tags/life/</link>
     <description>Recent content in life on UltraFine</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2019, FanChen and the Hugo Authors; all rights reserved.</copyright>
     <lastBuildDate>Wed, 23 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/life/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://ultrafine.fun/tags/life/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title> UltraFine 博客开通啦！</title>
-      <link>https://example.com/post/launch/</link>
+      <link>http://ultrafine.fun/post/launch/</link>
       <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/post/launch/</guid>
+      <guid>http://ultrafine.fun/post/launch/</guid>
       <description>一直想做自己的技术博客，今天它终于上线了！</description>
     </item>
     

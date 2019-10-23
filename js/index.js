@@ -176,7 +176,7 @@
     link = createEl('a');
     icon = createEl('img');
     icon.className = 'icon';
-    icon.src = 'https://example.com/images/icons/link.svg';
+    icon.src = 'http://ultrafine.fun/images/icons/link.svg';
     link.className = 'link';
     link.appendChild(icon);
     id = node.getAttribute('id');
