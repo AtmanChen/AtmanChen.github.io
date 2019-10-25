@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>UltraFine</title>
-    <link>/</link>
-    <description>Recent content on UltraFine</description>
+    <title>C&#43;&#43; on UltraFine</title>
+    <link>/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on UltraFine</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2019, FanChen and the Hugo Authors; all rights reserved.</copyright>
     <lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,27 +22,6 @@
 1 2 3 4 5  struct MyType { operator destination-type() const { // return 返回一个 destination-type 的值 } }   下面是一个实例:
 Example 1 :
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  struct ReadOnlyValue { ReadOnlyValue(const int intValue, const std::string stringValue) : intVal{ intValue }, strVal{ stringValue } {}; operator int() const { return intVal; } operator std::string() const { return strVal; } private: const int intVal; const std::string strVal; }   operator int 函数定义了将 ReadOnlyValue 类型的变量转换为 int 类型时转换后的值，而且可以返回任何你需要的值。比如这里我们返回了属性 intVal，如果你愿意，也可以返回 intVal * 10。</description>
-    </item>
-    
-    <item>
-      <title>Type Classes in Haskell</title>
-      <link>/blogs/typeclasses/</link>
-      <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/blogs/typeclasses/</guid>
-      <description>Haskell 中的 type classes 看看 Haskell 中的求和函数:
-1 2 3  sum :: (Num a) =&amp;gt; [a] -&amp;gt; a sum [] = 0 sum (x:xs) = x + sum xs   可以看到 sum 函数的类型签名前有对小括号 (Num a), 这个就是 Haskell 的 type classes。应该说 type classes 就是用来在泛型中限制参数类型的。因为数字可以相加，而其他类型不一定可以，比如两个人相加 (“张三” + “李四”)，结果是两个人，并不像数字 (1 + 1 = 2)一样具有合二为一的特点。
-我们从 Swift 的代码更容易理解这个 type classes:
-1 2 3 4  extension Array where Element: Numeric { func sum() -&amp;gt; Element { reduce(0, +) } } let intSum = [1,2,3].</description>
-    </item>
-    
-    <item>
-      <title>UltraFine</title>
-      <link>/about/</link>
-      <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>个人博客 UltraFine 上线了！&amp;rdquo;UltraFine&amp;rdquo; 这个名字来自一款 LG 生产的显示器，我觉得它的发音和含义都很酷。</description>
     </item>
     
   </channel>

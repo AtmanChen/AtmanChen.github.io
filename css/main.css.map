@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "/Users/bake/Documents/hugo_website/my-website",
+	"sourceRoot": "/Users/bake/Documents/hugo_website/ultra_fine",
 	"sources": [
 		"themes/newsroom/assets/scss/main.scss",
 		"themes/newsroom/assets/scss/_fonts.scss",
