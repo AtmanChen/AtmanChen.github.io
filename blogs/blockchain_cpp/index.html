@@ -72,11 +72,11 @@
 
 <hr />
 
-<p>你可能已经听说过区块链了，但对它的认识比较模糊。区块链是一个去中心化的分布式账簿。要更新这些账簿中的内容非常困难，以至于有的人说区块链实际上是不可变的 *（实际的情况确实如此，区块只会从一种状态成为另一种状态，所有的状态都有记录而且不可更改）*。在这里我们不去理会那些理论上的分歧，因为你需要的是有人用 C++ 向你展示如何用代码写一个区块链，这正是我准备做的。</p>
+<p>你可能已经听说过区块链了，但对它的认识比较模糊。区块链是一个去中心化的分布式账簿。要更新这些账簿中的内容非常困难，以至于有的人说区块链实际上是不可变的 <em>（实际的情况确实如此，区块只会从一种状态成为另一种状态，所有的状态都有记录而且不可更改）</em> 。在这里我们不去理会那些理论上的分歧，因为你需要的是有人用 C++ 向你展示如何用代码写一个区块链，这正是我准备做的。</p>
 
 <p>使用 CLion <em>（我用的是 Xcode，无所谓&hellip;)</em> 新建一个名为 TestChain 的 C++ 工程，里面已经有一个 main.cpp 的文件了。</p>
 
-<p>在主工程中新建 Block 的 cpp 文件 <em>(Xcode 将会提醒你是否要同时创建 .hpp 文件，当然是要的，把下面钩打上)</em> 。导入一些需要用的系统库</p>
+<p>在主工程中新建 Block 的 cpp 文件 <em>(Xcode 将会提醒你是否要同时创建 .hpp 文件，当然是要的，把下面的钩打上)</em> 。导入一些需要用的系统库</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="lnt">1
@@ -86,9 +86,9 @@
 </span></code></pre></td></tr></table>
 </div>
 </div>
-<p>一个区块链是由一系列区块组成，每个区块都包含当前区块的数据以及前一个区块数据的加密表示，这也意味着要修改区块的内容非常困难，因为你要把连接这个区块之后所有的区块都修改才行。</p>
+<p>一个区块链是由一系列区块组成的，每个区块都包含当前区块的数据以及前一个区块数据的加密表示，这也意味着要修改区块的内容非常困难，因为你要把连接这个区块之后所有的区块都修改才行。</p>
 
-<p>毫无疑问，我们先在 Block.h 文件中创建一个 Block 类，它有个叫做 sPrevHash 的公开属性 （每一个区块都连接着上一个区块，这个 Hash 也就是上一个区块数据的加密表示）。构造函数的签名里有两个入参 index 和 data 为 _nIndex 和 _sData 属性赋值；请注意 data 使用了 const 关键字进行修饰，表示入参以引用但不可更改的形式传入，这样做能提高效率节省内存。MineBlock 函数有一个 nDifficulty 入参，用来调节创建区块时的难度 *（这里只是简略的模拟，具体的情况非常复杂，比如比特币就有动态调节 “挖矿” 难度的机制）*。我们还定义了如下的一些私有属性: _nIndex, _nNonce, _sData, _sHash 和 _tTime。_CalculateHash 函数的签名同样使用了 const 关键字进行修饰，保证该函数不会修改 Block 对象中的任何属性。</p>
+<p>毫无疑问，我们先在 Block.h 文件中创建一个 Block 类，它有个叫做 sPrevHash 的公开属性<em>（每一个区块都连接着上一个区块，这个 Hash 也就是上一个区块数据的加密表示）</em> 。构造函数的签名里有两个入参 index 和 data 为 _nIndex 和 _sData 属性赋值；请注意 data 使用了 const 关键字进行修饰，表示入参以引用但不可更改的形式传入，这样做能提高效率节省内存。MineBlock 函数有一个 nDifficulty 入参，用来调节创建区块时的难度 <em>（这里只是简略的模拟，具体的情况非常复杂，比如比特币就有动态调节 “挖矿” 难度的机制）</em> 。我们还定义了如下的一些私有属性: _nIndex, _nNonce, _sData, _sHash 和 _tTime。_CalculateHash 函数的签名同样使用了 const 关键字进行修饰，保证该函数不会修改 Block 对象中的任何属性。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="lnt"> 1
@@ -128,7 +128,7 @@
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>现在是时候创建 BlockChain 对象了。和 Block 一样，新建 BlockChain.hpp 和 BlockChain.cpp 文件，并在 .hpp 文件中导入一些必要的系统库和头文件。<vector> 用于处理数组，Block.hpp 则是我们刚写好的 Block 对象的头文件。</p>
+<p>现在是时候创建 BlockChain 对象了。和 Block 一样，新建 BlockChain.hpp 和 BlockChain.cpp 文件，并在 .hpp 文件中导入一些必要的系统库和头文件。“&lt;<vector>vector&gt;” 用于处理数组，Block.hpp 则是我们刚写好的 Block 对象的头文件。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="lnt">1
@@ -170,7 +170,7 @@
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>和 Block 类一样，我们简略地把 BlockChain 对象定义处理了。用 public 修饰了 构造函数和一个用于往区块链对象中添加区块的函数 AddBlock ，它的入参是一个 Block 类型的对象。private 修饰的属性中有当前区块的难度系数 _nDifficulty 、保存所有区块的数组 _vChain以及获取区块链中最后一个区块的函数 _GetLastBlock。_GetLastBlock 函数同样使用 const 关键字修饰以保证在它不会修改 BlockChain 对象的属性。</p>
+<p>和 Block 类一样，我们简略地把 BlockChain 类定义出来了。用 public 修饰了构造函数和一个用于往区块链对象中添加区块的函数 AddBlock ，它的入参是一个 Block 类型的对象。private 修饰的属性中有当前区块的难度系数 _nDifficulty 、保存所有区块的数组 _vChain以及获取区块链中最后一个区块的函数 _GetLastBlock。_GetLastBlock 函数同样使用 const 关键字修饰以保证在它不会修改 BlockChain 对象的属性。</p>
 
 <p>由于区块链中使用了密码学，所以要向工程中添加一些加密的功能。我们将使用 SHA256 哈希算法来计算区块的哈希值。</p>
 
@@ -222,9 +222,9 @@
 </div>
 <p>这是当前区块数据哈希值的 get 方法。</p>
 
-<p>你可能知道区块链技术是因为运用到比特币上而出名的。在比特币系统中，一个账户向另一个账户转账时，这个转账记录就被对应的节点写入比特币网络对应的区块中 *(这里可能翻译得有问题，请查阅原文)*。一个节点是另一个运行比特币软件的电脑，由于比特币网络是点对点的，所以这个节点可能是任意一台电脑。该节点的拥有者在为区块链成功创建出一个有效区块的时候会获得奖励的比特币，这个过程被称为“挖矿”。</p>
+<p>你可能知道区块链技术是因为运用到比特币上而出名的。在比特币系统中，一个账户向另一个账户转账时，这个转账记录就被对应的节点写入比特币网络对应的区块中 <em>(这里可能翻译得有问题，请查阅原文)</em> 。一个节点是一台运行比特币软件的电脑，由于比特币网络是点对点的，所以这个节点可能是任意一台电脑。该节点的拥有者在为区块链成功创建出一个有效区块的时候会获得奖励的比特币，这个过程被称为“挖矿”。</p>
 
-<p>为了成功创建出一个有效的区块，矿工必须通过密码学计算出当前区块的哈希值，计算出的哈希如果以0开头的个数如果等于或大于当前网络设置的难度系数，则这个哈希是有效的，当前区块被系统承认有效并加入到区块链中。</p>
+<p>为了成功创建出一个有效的区块，矿工必须通过密码学计算出当前区块的哈希值，计算出的哈希以0开头的个数如果等于或大于当前网络设置的难度系数，则这个哈希是有效的，当前区块被系统承认有效并加入到区块链中。</p>
 
 <p>说了这么多，我们来定义出 MineBlock 函数，这也是奇迹发生的地方！</p>
 <div class="highlight"><div class="chroma">
@@ -266,7 +266,7 @@
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>MineBlock 函数入参是计算出当前区块有效哈希的难度系数，也就是有效哈希的前 nDifficulty 的字符是 &lsquo;0&rsquo;。比如传入的参数是6，那么也就是说当前区块的哈希中只有前6位都是字符 &lsquo;0&rsquo;的时候才会被系统判定为有效。代码中使用 do&hellip;while 循环来执行这个过程，计算哈希的种子数 _nNonce 从0开始，直到根据这个种子数计算出的哈希满足前 nDifficulty 是0的条件，这时“挖矿“成功，并把这个哈希打印出来。</p>
+<p>MineBlock 函数入参是计算出当前区块有效哈希的难度系数，也就是说有效哈希的前 nDifficulty 个字符是 &lsquo;0&rsquo;。比如传入的参数是6，那么也就是说当前区块的哈希中只有前6位都是字符 &lsquo;0&rsquo;的时候才会被系统判定为有效。代码中使用 do&hellip;while 循环来执行这个过程，计算哈希的种子数 _nNonce 从0开始，直到根据这个种子数计算出的哈希满足前 nDifficulty 是0的条件，这时“挖矿“成功，并把这个哈希打印出来。</p>
 
 <p>下面是计算哈希的函数 _CalculateHash:</p>
 <div class="highlight"><div class="chroma">
@@ -305,9 +305,9 @@
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>在构造函数中，我们将“创世区块”添加到了 vChain 数组中，之后所有的区块都将包含它的信息，创建区块的难度系数设置为6，也就是说想要往系统中添加一个新的区块，需要找到一个哈希值满足前6个字符是&rsquo;0&rsquo;。</p>
+<p>在构造函数中，我们将“创世区块”添加到了 <code>vChain</code> 数组中，之后所有的区块都将包含它的信息，创建区块的难度系数设置为6，也就是说想要往系统中添加一个新的区块，需要找到一个哈希值满足前6个字符是&rsquo;0&rsquo;。</p>
 
-<p>然后是添加区块的 AddBlock 函数:</p>
+<p>然后是添加区块的 <code>AddBlock</code> 函数:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="lnt">1
@@ -325,7 +325,7 @@
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>我们传入了一个新的区块，首先拿到前一个区块的哈希给这个区块的 sPrevHash 参数赋值，接着用当前区块链的难度系数 _nDifficulty 进行“挖矿”（也就是找到一个哈希满足前 _nDifficulty 位全是字符&rsquo;0&rsquo;）。</p>
+<p>我们传入了一个新的区块，首先拿到前一个区块的哈希给这个区块的 <code>sPrevHash</code> 属性赋值，接着用当前区块链的难度系数 <code>_nDifficulty</code> 进行“挖矿”（也就是找到一个哈希满足前 <code>_nDifficulty</code> 位全是字符&rsquo;0&rsquo;）。</p>
 
 <p>让我们将最后一个函数定义出来:</p>
 <div class="highlight"><div class="chroma">
@@ -341,7 +341,7 @@
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>这个函数将会返回当前区块链中的最后一个区块，因为我们在添加新的区块时需要直到上一个区块的哈希。</p>
+<p>这个函数将会返回当前区块链中的最后一个区块，因为我们在添加新的区块时需要知道上一个区块的哈希。</p>
 
 <p>万事俱备，我们可以开始测试了!</p>
 
