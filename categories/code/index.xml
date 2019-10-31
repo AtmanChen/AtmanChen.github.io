@@ -6,10 +6,24 @@
     <description>Recent content in code on UltraFine</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2019, FanChen and the Hugo Authors; all rights reserved.</copyright>
-    <lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/code/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>BUILD A BLOCKCHAIN WITH C&#43;&#43;</title>
+      <link>/blogs/blockchain_cpp/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/blockchain_cpp/</guid>
+      <description>这篇文章是 BUILD A BLOCKCHAIN WITH C++ 的翻译，我忽略了很多工程设置以及与当前主题关系不大的内容。如果感兴趣，请点击前面的链接查看原文。
+你可能已经听说过区块链了，但对它的认识比较模糊。区块链是一个去中心化的分布式账簿。要更新这些账簿中的内容非常困难，以至于有的人说区块链实际上是不可变的 *（实际的情况确实如此，区块只会从一种状态成为另一种状态，所有的状态都有记录而且不可更改）*。在这里我们不去理会那些理论上的分歧，因为你需要的是有人用 C++ 向你展示如何用代码写一个区块链，这正是我准备做的。
+使用 CLion （我用的是 Xcode，无所谓&amp;hellip;) 新建一个名为 TestChain 的 C++ 工程，里面已经有一个 main.cpp 的文件了。
+在主工程中新建 Block 的 cpp 文件 (Xcode 将会提醒你是否要同时创建 .hpp 文件，当然是要的，把下面钩打上) 。导入一些需要用的系统库
+1  #include &amp;lt;iostream&amp;gt;   一个区块链是由一系列区块组成，每个区块都包含当前区块的数据以及前一个区块数据的加密表示，这也意味着要修改区块的内容非常困难，因为你要把连接这个区块之后所有的区块都修改才行。
+毫无疑问，我们先在 Block.h 文件中创建一个 Block 类，它有个叫做 sPrevHash 的公开属性 （每一个区块都连接着上一个区块，这个 Hash 也就是上一个区块数据的加密表示）。构造函数的签名里有两个入参 index 和 data 为 _nIndex 和 _sData 属性赋值；请注意 data 使用了 const 关键字进行修饰，表示入参以引用但不可更改的形式传入，这样做能提高效率节省内存。MineBlock 函数有一个 nDifficulty 入参，用来调节创建区块时的难度 *（这里只是简略的模拟，具体的情况非常复杂，比如比特币就有动态调节 “挖矿” 难度的机制）*。我们还定义了如下的一些私有属性: _nIndex, _nNonce, _sData, _sHash 和 _tTime。_CalculateHash 函数的签名同样使用了 const 关键字进行修饰，保证该函数不会修改 Block 对象中的任何属性。</description>
+    </item>
     
     <item>
       <title>C&#43;&#43; 中的自定义类型转换</title>
